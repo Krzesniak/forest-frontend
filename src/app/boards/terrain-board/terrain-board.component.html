@@ -1,0 +1,22 @@
+<div class="table-container">
+  <table >
+    <ng-container *ngFor="let row of board; let i = index">
+      <tr>
+        <ng-container *ngFor="let col of row; let j = index">
+          <td  [ngClass]="{
+                          'forest_coniferous' : col.terrain == 'FOREST_CONIFEROUS',
+                          'forest_deciduous' : col.terrain == 'FOREST_DECIDUOUS',
+                          'sand' : col.terrain == 'SAND',
+                          'water' : col.terrain == 'WATER',
+                          'extreme' : col.terrain == 'EXTREME'
+                       }"
+          >
+          <p>{{i}}{{j}}</p>
+
+          </td>
+        </ng-container>
+      </tr>
+    </ng-container>
+  </table>
+</div>
+
