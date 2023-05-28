@@ -1,0 +1,22 @@
+<div class="table-container">
+  <table >
+    <ng-container *ngFor="let row of board; let i = index">
+      <tr>
+        <ng-container *ngFor="let col of row; let j = index">
+          <td  [ngClass]="{
+                          'none': col.forestFireIndex == 'NONE',
+                          'low' : col.forestFireIndex == 'LOW',
+                          'moderate' : col.forestFireIndex == 'MODERATE',
+                          'high' : col.forestFireIndex == 'HIGH',
+                          'very-high' : col.forestFireIndex == 'VERY_HIGH',
+                          'extreme' : col.forestFireIndex == 'EXTREME'
+                       }"
+          >
+            <!--  <p>{{i}}{{j}}</p>-->
+
+          </td>
+        </ng-container>
+      </tr>
+    </ng-container>
+  </table>
+</div>

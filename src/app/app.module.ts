@@ -15,6 +15,12 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {MatStepperModule} from "@angular/material/stepper";
 import {MatInputModule} from "@angular/material/input";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {MatSliderModule} from "@angular/material/slider";
+import { ForestIndexBoardComponent } from './boards/forest-index-board/forest-index-board.component';
+import { AgentBoardComponent } from './boards/agent-board/agent-board.component';
+import { AddingAgentComponent } from './map-generator/adding-sensor-agent/adding-agent.component';
+import {MatDialogModule} from "@angular/material/dialog";
+import {MatIconModule} from "@angular/material/icon";
 
 @NgModule({
   declarations: [
@@ -22,7 +28,10 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     TerrainBoardComponent,
     NavbarComponent,
     SimulationComponent,
-    MapGeneratorComponent
+    MapGeneratorComponent,
+    ForestIndexBoardComponent,
+    AgentBoardComponent,
+    AddingAgentComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +43,10 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     ReactiveFormsModule,
     MatStepperModule,
     BrowserAnimationsModule,
-    MatInputModule
+    MatInputModule,
+    MatSliderModule,
+    MatDialogModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

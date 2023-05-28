@@ -1,0 +1,57 @@
+.main-content-terrain{
+  flex: 10;
+  margin-right: 10px;
+}
+.terrain-desc {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+.terrain-desc img {
+  width: 20%;
+  height: auto;
+  min-height: 2.5rem;
+  max-height: 2.7rem;
+  margin-right: 15px;
+}
+
+.box {
+  float: left;
+  height: 50px;
+  width: 50px;
+  border: 1px solid black;
+  clear: both;
+  margin-right: 10px;
+}
+.none {
+  background-color: #0b449a;
+}
+.low {
+  background-color: #156505;
+}
+
+.moderate {
+  background-color: #06c006;
+}
+
+.high {
+  background-color: #cdde31;
+}
+
+.very-high {
+  background-color: #ff8e5d;
+}
+.extreme {
+  background-color: #ee0404;
+}
+.gray {
+  background-color: #212020;
+
+}
+
+.forest-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+
+}

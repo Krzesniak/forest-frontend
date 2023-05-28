@@ -1,0 +1,40 @@
+<div style="display: inline-flex; align-items: center">
+  <div style="padding: 20px">
+    <img src="assets/img/sensor.png">
+  </div>
+  <div style="font-size: 25px; margin-left: 20px; padding: 20px">
+    <b>Sensor Agent - Dodaj lub usuń...</b>
+  </div>
+</div>
+<mat-dialog-content style="max-height: 85%">
+  <div class="main">
+    <div class="table-container">
+      <table>
+        <ng-container *ngFor="let row of board; let i = index">
+          <tr>
+            <ng-container *ngFor="let col of row; let j = index">
+              <td [ngClass]="{
+                          'forest_coniferous' : col.terrain == 'FOREST_CONIFEROUS',
+                          'forest_deciduous' : col.terrain == 'FOREST_DECIDUOUS',
+                          'sand' : col.terrain == 'SAND',
+                          'water' : col.terrain == 'WATER',
+                          'extreme' : col.terrain == 'EXTREME'
+                       }" (click)="tickCell(i, j)">
+                <img src="assets/img/sensor.png" *ngIf="col.agentParameters.hasSensor">
+              </td>
+            </ng-container>
+          </tr>
+        </ng-container>
+      </table>
+    </div>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <div style="display: flex; justify-content: space-between;">
+    <button style="width: 30%; height: 2rem" mat-dialog-close mat-raised-button color="warn">Zrezygnuj</button>
+    <button style="width: 30%; height: 2rem" mat-dialog-close (click)="updateAgents()" mat-raised-button color="accent">
+      Zapisz zmiany
+    </button>
+  </div>
+</mat-dialog-actions>
+

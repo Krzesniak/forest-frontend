@@ -1,0 +1,21 @@
+<div class="table-container">
+  <table >
+    <ng-container *ngFor="let row of board; let i = index">
+      <tr>
+        <ng-container *ngFor="let col of row; let j = index">
+          <td  [ngClass]="{
+                          'visible': col.agentParameters.visible,
+                          'testable' : col.agentParameters.testable,
+                          'none' : (!col.agentParameters.visible && !col.agentParameters.testable)
+                       }"
+          >
+            <img *ngIf="board[i][j].agentParameters.hasSensor" src="assets/img/sensor.png" >
+            <img *ngIf="board[i][j].isCenter" src="assets/img/sensor.png" >
+            <!--  <p>{{i}}{{j}}</p>-->
+
+          </td>
+        </ng-container>
+      </tr>
+    </ng-container>
+  </table>
+</div>

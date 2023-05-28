@@ -1,14 +1,13 @@
 import {Component, OnInit} from '@angular/core';
-import {interval} from "rxjs";
-import {ForestService} from "../../forest.service";
 import {Terrain} from "../constants";
+import {ForestService} from "../../forest.service";
 
 @Component({
-  selector: 'app-terrain-board',
-  templateUrl: './terrain-board.component.html',
-  styleUrls: ['./terrain-board.component.css']
+  selector: 'app-forest-index-board',
+  templateUrl: './forest-index-board.component.html',
+  styleUrls: ['./forest-index-board.component.css']
 })
-export class TerrainBoardComponent implements OnInit{
+export class ForestIndexBoardComponent implements OnInit{
 
   board: any;
 
@@ -19,9 +18,9 @@ export class TerrainBoardComponent implements OnInit{
 
   ngOnInit(): void {
     this.updateBoard();
-  /*  interval(1000).subscribe(() => {
-      this.updateBoard();
-    });*/
+    /*  interval(1000).subscribe(() => {
+        this.updateBoard();
+      });*/
   }
 
   updateBoard(): void {
@@ -29,4 +28,5 @@ export class TerrainBoardComponent implements OnInit{
       this.board = date;
     })
   }
+
 }

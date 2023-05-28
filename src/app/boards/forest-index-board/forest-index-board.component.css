@@ -1,0 +1,52 @@
+table {
+  height: 100%;
+  width: 100%;
+  table-layout: fixed;
+  border-spacing: 0;
+
+}
+
+.table-container {
+  display: flex;
+
+  height: 80%;
+  /*  padding: 50px 50px 0px 50px;*/
+}
+
+tr {
+
+  align-items: center;
+  padding: 0;
+  border: 0;
+}
+
+td {
+  position: relative;
+  width: 100%;
+  height: 50px;
+  background-color: green;
+  border: 1px whitesmoke dotted;
+  padding: 0px;
+}
+
+.none {
+  background-color: #0b449a;
+}
+.low {
+  background-color: #156505;
+}
+
+.moderate {
+  background-color: #06c006;
+}
+
+.high {
+  background-color: #cdde31;
+}
+
+.very-high {
+  background-color: #ff8e5d;
+}
+.extreme {
+  background-color: #ee0404;
+}

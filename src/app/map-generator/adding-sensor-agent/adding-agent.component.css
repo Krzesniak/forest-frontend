@@ -10,7 +10,7 @@ table {
   display: flex;
 
   height: 80%;
-/*  padding: 50px 50px 0px 50px;*/
+  /*  padding: 50px 50px 0px 50px;*/
 }
 
 tr {
@@ -66,4 +66,11 @@ p {
   top: 0;
 }
 
-
+.mat-icon{
+  height: 5px  !important;
+  width: 5px  !important;
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  font-size: 12px;
+}
