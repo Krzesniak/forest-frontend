@@ -20,7 +20,7 @@
                           'water' : col.terrain == 'WATER',
                           'extreme' : col.terrain == 'EXTREME'
                        }" (click)="tickCell(i, j)">
-                <img src="assets/img/sensor.png" *ngIf="col.agentParameters.hasSensor">
+                <img src="assets/img/center.png" *ngIf="col.agentParameters.center">
               </td>
             </ng-container>
           </tr>
@@ -30,9 +30,9 @@
   </div>
 </mat-dialog-content>
 <mat-dialog-actions style="display: flex; justify-content: flex-end;">
-  <button style="min-width: 100px" mat-dialog-close mat-raised-button color="warn">Zrezygnuj</button>
-  <button style="min-width: 100px" mat-dialog-close="true" (click)="updateAgents()" mat-raised-button color="primary">
-    Zapisz zmiany
-  </button>
+    <button style="min-width: 100px" mat-dialog-close mat-raised-button color="warn">Zrezygnuj</button>
+    <button style="min-width: 100px;" mat-dialog-close="true" (click)="updateAgents()"  mat-raised-button color="primary">
+      Zapisz zmiany
+    </button>
 </mat-dialog-actions>
 

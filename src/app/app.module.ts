@@ -21,6 +21,12 @@ import { AgentBoardComponent } from './boards/agent-board/agent-board.component'
 import { AddingAgentComponent } from './map-generator/adding-sensor-agent/adding-agent.component';
 import {MatDialogModule} from "@angular/material/dialog";
 import {MatIconModule} from "@angular/material/icon";
+import { AddingManagingAgentComponent } from './map-generator/adding-managing-agent/adding-managing-agent.component';
+import { FireBoardComponent } from './boards/fire-board/fire-board.component';
+import { AddingFireComponent } from './map-generator/adding-fire/adding-fire.component';
+import { MainAppComponent } from './main-app/main-app.component';
+import {MatTabsModule} from "@angular/material/tabs";
+import { PixelDetailsComponent } from './boards/pixel-details/pixel-details.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +37,12 @@ import {MatIconModule} from "@angular/material/icon";
     MapGeneratorComponent,
     ForestIndexBoardComponent,
     AgentBoardComponent,
-    AddingAgentComponent
+    AddingAgentComponent,
+    AddingManagingAgentComponent,
+    FireBoardComponent,
+    AddingFireComponent,
+    MainAppComponent,
+    PixelDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +57,8 @@ import {MatIconModule} from "@angular/material/icon";
     MatInputModule,
     MatSliderModule,
     MatDialogModule,
-    MatIconModule
+    MatIconModule,
+    MatTabsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -5,6 +5,11 @@ import {TerrainBoardComponent} from "../boards/terrain-board/terrain-board.compo
 import {ForestIndexBoardComponent} from "../boards/forest-index-board/forest-index-board.component";
 import {MatDialog, MatDialogConfig} from "@angular/material/dialog";
 import {AddingAgentComponent} from "./adding-sensor-agent/adding-agent.component";
+import {AgentBoardComponent} from "../boards/agent-board/agent-board.component";
+import {AddingManagingAgentComponent} from "./adding-managing-agent/adding-managing-agent.component";
+import {AddingFireComponent} from "./adding-fire/adding-fire.component";
+import {FireBoardComponent} from "../boards/fire-board/fire-board.component";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-map-generator',
@@ -30,9 +35,7 @@ export class MapGeneratorComponent {
   thirdFormGroup = this._formBuilder.group({
     testerAgents: [1, Validators.required],
     firefighterAgents: [1, Validators.required],
-    sensorAgents: [1, Validators.required],
     fireControllerAgents: [1, Validators.required],
-    managingAgents: [1, Validators.required],
     fireVehicles: [1, Validators.required]
   });
   isLinear: boolean = false;
@@ -41,9 +44,10 @@ export class MapGeneratorComponent {
 
   @ViewChild(ForestIndexBoardComponent) forestIndexBoardComponent: ForestIndexBoardComponent | undefined;
 
-
+  @ViewChild(AgentBoardComponent) agentBoardComponent: AgentBoardComponent | undefined;
+  @ViewChild(FireBoardComponent) fireBoardComponent : FireBoardComponent | undefined;
   constructor(private _formBuilder: FormBuilder, private forestService: ForestService,
-              public dialog: MatDialog) {
+              public dialog: MatDialog, public router: Router) {
   }
 
   formatLabel(value: number): string {
@@ -63,7 +67,7 @@ export class MapGeneratorComponent {
         }
       };
     this.forestService.generateBoard(req).subscribe(() => {
-      this.terrainComponent?.updateBoard();
+      this.terrainComponent?.updateTempBoard();
     })
   }
 
@@ -77,7 +81,7 @@ export class MapGeneratorComponent {
         windStrength: this.secondFormGroup.controls['windSpeed'].value!
       };
     this.forestService.generateForestIndexView(req).subscribe(() => {
-      this.forestIndexBoardComponent?.updateBoard();
+      this.forestIndexBoardComponent?.updateTempBoard();
     })
   }
 
@@ -92,12 +96,49 @@ export class MapGeneratorComponent {
       data: {sensorAgents: firefighterAgents, testerAgents: testerAgents,
         fireControllerAgents: fireControllerAgents}
     };
-    this.dialog.open(AddingAgentComponent, dialogConfig);
+    let dialogRef = this.dialog.open(AddingAgentComponent, dialogConfig);
+    dialogRef.afterClosed().subscribe(result => {
+      if(result === "true") {
+        this.agentBoardComponent?.updateTempBoard();
+      }
+    })
   }
 
   addManagingAgents() {
-    return;
+    let firefighterAgents = this.thirdFormGroup.controls['firefighterAgents'].value!;
+    let fireControllerAgents = this.thirdFormGroup.controls['fireControllerAgents'].value!;
+    let testerAgents = this.thirdFormGroup.controls['testerAgents'].value!;
+
+    const dialogConfig: MatDialogConfig = {
+      maxWidth: '99.5%',
+      height: '90%',
+      data: {sensorAgents: firefighterAgents, testerAgents: testerAgents,
+        fireControllerAgents: fireControllerAgents}
+    };
+    let dialogRef = this.dialog.open(AddingManagingAgentComponent, dialogConfig);
+    dialogRef.afterClosed().subscribe(result => {
+      if(result === "true") {
+        this.agentBoardComponent?.updateTempBoard();
+      }
+    })
   }
 
+  addFire() {
+    const dialogConfig: MatDialogConfig = {
+      maxWidth: '99.5%',
+      height: '90%'
+    };
+    let dialogRef = this.dialog.open(AddingFireComponent, dialogConfig);
+    dialogRef.afterClosed().subscribe(result => {
+      if(result === "true") {
+        this.fireBoardComponent?.updateTempBoard();
+      }
+    })
+  }
 
+  generateFinal() {
+    this.forestService.generateFinalBoard().subscribe(() => {
+      this.router.navigate(["/simulation"]);
+    })
+  }
 }

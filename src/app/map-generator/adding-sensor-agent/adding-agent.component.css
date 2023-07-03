@@ -41,19 +41,19 @@ img {
 }
 
 .forest_coniferous {
-  background-image: url("/assets/img/grass.png");
+  background-image: url("/assets/img/FOREST_DECIDUOUS.png");
 }
 
 .forest_deciduous {
-  background-image: url("/assets/img/forest.png");
+  background-image: url("/assets/img/FOREST_CONIFEROUS.png");
 }
 
 .sand {
-  background-image: url("/assets/img/sand.png");
+  background-image: url("/assets/img/SAND.png");
 }
 
 .water {
-  background-image: url("/assets/img/water.png");
+  background-image: url("/assets/img/WATER.png");
 }
 
 .destroyed {

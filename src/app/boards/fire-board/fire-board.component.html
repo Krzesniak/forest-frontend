@@ -1,0 +1,17 @@
+<div class="table-container">
+  <table >
+    <ng-container *ngFor="let row of board; let i = index">
+      <tr>
+        <ng-container *ngFor="let col of row; let j = index">
+          <td  [ngStyle]="{ 'background-color': col.fireParameter.forestFireBurnedColor }" (click)="changePixelDetails(i, j)">
+            <img *ngIf="board[i][j].fireParameter.forestFireState == ForestFireState.LOW" src="assets/img/fire1.png" >
+            <img *ngIf="board[i][j].fireParameter.forestFireState == ForestFireState.MEDIUM" src="assets/img/fire2.png" >
+            <img *ngIf="board[i][j].fireParameter.forestFireState == ForestFireState.HIGH" src="assets/img/fire3.png" >
+            <img *ngIf="board[i][j].fireParameter.forestFireState == ForestFireState.EXTREME" src="assets/img/fire4.png" >
+          </td>
+
+        </ng-container>
+      </tr>
+    </ng-container>
+  </table>
+</div>

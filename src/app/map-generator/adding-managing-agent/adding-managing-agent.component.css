@@ -10,7 +10,7 @@ table {
   display: flex;
 
   height: 80%;
-/*  padding: 50px 50px 0px 50px;*/
+  /*  padding: 50px 50px 0px 50px;*/
 }
 
 tr {
@@ -39,6 +39,9 @@ img {
 
 
 }
+.main {
+  display: flex;
+}
 
 .forest_coniferous {
   background-image: url("/assets/img/FOREST_DECIDUOUS.png");
@@ -66,4 +69,11 @@ p {
   top: 0;
 }
 
-
+.mat-icon{
+  height: 5px  !important;
+  width: 5px  !important;
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  font-size: 12px;
+}

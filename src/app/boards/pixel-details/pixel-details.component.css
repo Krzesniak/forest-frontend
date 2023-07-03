@@ -1,0 +1,21 @@
+.none {
+  background-color: #0b449a;
+}
+.low {
+  background-color: #156505;
+}
+
+.moderate {
+  background-color: #06c006;
+}
+
+.high {
+  background-color: #cdde31;
+}
+
+.very-high {
+  background-color: #ff8e5d;
+}
+.extreme {
+  background-color: #ee0404;
+}

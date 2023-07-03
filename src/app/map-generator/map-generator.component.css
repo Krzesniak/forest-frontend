@@ -16,6 +16,7 @@
 }
 
 .box {
+  min-width: 50px;
   float: left;
   height: 50px;
   width: 50px;
@@ -27,11 +28,22 @@
   background-color: #0b449a;
 }
 .low {
-  background-color: #156505;
+  background-color:   #2c651f;
+}
+.test {
+  background-color:  #b8ffb8;
+}
+
+.fire-visible {
+  background-color: #ff1f1f !important;
+}
+
+.fire-non-visible {
+  background-color: #570505 !important;
 }
 
 .moderate {
-  background-color: #06c006;
+  background-color: #2c651f;
 }
 
 .high {
@@ -45,7 +57,7 @@
   background-color: #ee0404;
 }
 .gray {
-  background-color: #212020;
+  background-color: #ababab;
 
 }
 

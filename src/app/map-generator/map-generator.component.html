@@ -11,19 +11,19 @@
             <h1>LEGENDA</h1>
           </div>
           <div class="terrain-desc">
-            <img src="assets/img/sand.png">
+            <img src="../../assets/img/SAND.png">
             TERENY PIASZCZYSTE
           </div>
           <div class="terrain-desc">
-            <img src="assets/img/forest.png">
+            <img src="../../assets/img/FOREST_CONIFEROUS.png">
             LAS IGLASTY
           </div>
           <div class="terrain-desc">
-            <img src="assets/img/grass.png">
+            <img src="../../assets/img/FOREST_DECIDUOUS.png">
             LAS LIŚCIASTY
           </div>
           <div class="terrain-desc">
-            <img src="assets/img/water.png">
+            <img src="../../assets/img/WATER.png">
             TERENY WODNE
           </div>
 
@@ -48,28 +48,28 @@
           </div>
 
           <div class="terrain-desc">
-            <img src="assets/img/sand.png">
+            <img src="../../assets/img/SAND.png">
             <mat-slider min="0" max="10" step="1" showTickMarks discrete [displayWith]="formatLabel">
               <input matSliderThumb formControlName="sand">
             </mat-slider>
           </div>
 
           <div class="terrain-desc">
-            <img src="assets/img/forest.png">
+            <img src="../../assets/img/FOREST_CONIFEROUS.png">
             <mat-slider min="0" max="10" step="1" showTickMarks discrete [displayWith]="formatLabel">
               <input matSliderThumb formControlName="forestConiferous">
             </mat-slider>
           </div>
 
           <div class="terrain-desc">
-            <img src="assets/img/grass.png">
+            <img src="../../assets/img/FOREST_DECIDUOUS.png">
             <mat-slider min="0" max="10" step="1" showTickMarks discrete [displayWith]="formatLabel">
               <input matSliderThumb formControlName="forestDeciduous">
             </mat-slider>
           </div>
 
           <div class="terrain-desc">
-            <img src="assets/img/water.png">
+            <img src="../../assets/img/WATER.png">
             <mat-slider min="0" max="10" step="1" showTickMarks discrete [displayWith]="formatLabel">
               <input matSliderThumb formControlName="water">
             </mat-slider>
@@ -179,16 +179,31 @@
         </div>
         <div class="forest-item">
           <div class='box gray'></div>
-          TERENY NIEMONITOROWANE
+          <div>TERENY NIEMONITOROWANE</div>
         </div>
         <br>
         <div class="forest-item">
           <div class='box low'></div>
-          TERENY MONITOROWANE
+          <div> TERENY MONITOROWANE</div>
+        </div>
+        <br>
+        <div class="forest-item">
+          <div class='box fire-non-visible'></div>
+          <div> TERENY PŁONĄCE NIEMONITOROWANE</div>
+        </div>
+        <br>
+        <div class="forest-item">
+          <div class='box fire-visible'></div>
+          <div> TERENY PŁONĄCE MONITOROWANE</div>
+        </div>
+        <br>
+        <div class="forest-item">
+          <div class='box test'></div>
+          TERENY TESTOWALNE
         </div>
         <br>
         <div class="terrain-desc">
-          <img src="assets/img/managing-agent.png">
+          <img src="assets/img/center.png">
           MANAGING AGENT
         </div>
         <div class="terrain-desc">
@@ -215,44 +230,31 @@
           <h1>USTAWIENIA</h1>
         </div>
         <form [formGroup]="thirdFormGroup">
-          <div class="terrain-desc">
-            <img src="assets/img/managing-agent.png">
-            <mat-slider min="0" max="10" step="1" showTickMarks discrete [displayWith]="formatLabel">
-              <input matSliderThumb formControlName="managingAgents">
-            </mat-slider>
-          </div>
-
-          <div class="terrain-desc">
-            <img src="assets/img/sensor.png">
-            <mat-slider min="0" max="10" step="1" showTickMarks discrete [displayWith]="formatLabel">
-              <input matSliderThumb formControlName="sensorAgents">
-            </mat-slider>
-          </div>
 
           <div class="terrain-desc">
             <img src="assets/img/tester-agent.png">
-            <mat-slider min="0" max="10" step="1" showTickMarks discrete [displayWith]="formatLabel">
+            <mat-slider min="1" max="20" step="1" showTickMarks discrete [displayWith]="formatLabel">
               <input matSliderThumb formControlName="testerAgents">
             </mat-slider>
           </div>
 
           <div class="terrain-desc">
             <img src="assets/img/fire-controller-agent.png">
-            <mat-slider min="0" max="10" step="1" showTickMarks discrete [displayWith]="formatLabel">
+            <mat-slider min="1" max="10" step="1" showTickMarks discrete [displayWith]="formatLabel">
               <input matSliderThumb formControlName="fireControllerAgents">
             </mat-slider>
           </div>
 
           <div class="terrain-desc">
             <img src="assets/img/firefighter-agent.jpg">
-            <mat-slider min="0" max="10" step="1" showTickMarks discrete [displayWith]="formatLabel">
+            <mat-slider min="1" max="100" step="1" showTickMarks discrete [displayWith]="formatLabel">
               <input matSliderThumb formControlName="firefighterAgents">
             </mat-slider>
           </div>
 
           <div class="terrain-desc">
             <img src="assets/img/fire-vehicle.png">
-            <mat-slider min="0" max="10" step="1" showTickMarks discrete [displayWith]="formatLabel">
+            <mat-slider min="1" max="15" step="1" showTickMarks discrete [displayWith]="formatLabel">
               <input matSliderThumb formControlName="fireVehicles">
             </mat-slider>
           </div>
@@ -261,13 +263,15 @@
           </div>
 
           <div style="display: flex; justify-content: space-between;">
-            <button style="width: 30%; height: 2rem" (click)="addSensorAgents()" mat-raised-button color="warn"><img style="width: 1.8rem; height: 1.8rem;" src="assets/img/sensor.png"> </button>
-            <button  style="width: 30%; height: 2rem" (click)="addManagingAgents()" mat-raised-button color="accent"><img style="width: 1.8rem; height:1.8rem;" src="assets/img/managing-agent.png"></button>
+            <button style="width: 30%; height: 2rem" (click)="addSensorAgents()" mat-raised-button color="warn"><img
+              style="width: 1.8rem; height: 1.8rem;" src="assets/img/sensor.png"></button>
+            <button style="width: 30%; height: 2rem" (click)="addManagingAgents()" mat-raised-button color="accent"><img
+              style="width: 1.8rem; height:1.8rem;" src="assets/img/managing-agent.png"></button>
           </div>
 
           <div style="display: flex; justify-content: space-between;">
             <button style="width: 30%; height: 2rem" matStepperPrevious mat-raised-button color="warn">Cofnij</button>
-            <button style="width: 30%; height: 2rem"  matStepperNext mat-raised-button color="accent">Dalej</button>
+            <button style="width: 30%; height: 2rem" matStepperNext mat-raised-button color="accent">Dalej</button>
           </div>
         </form>
       </div>
@@ -275,10 +279,30 @@
   </mat-step>
   <mat-step>
     <ng-template matStepLabel>Ustal pożary</ng-template>
-    <p>You are now done.</p>
-    <div>
-      <button mat-button matStepperPrevious>Back</button>
-      <button mat-button (click)="stepper.reset()">Reset</button>
-    </div>
+      <div style="display: flex">
+        <div class="main-content-terrain">
+          <app-fire-board></app-fire-board>
+        </div>
+        <div style="flex: 1;">
+          <div class="header">
+            <h1>LEGENDA</h1>
+          </div>
+          <div>
+            <img style="max-width: 200px" src="assets/img/gradient-fire.png">
+            <p>STOPIEŃ WYPALALENIA TERENU</p>
+            <p>ZIELONY - BRAK, CZARNY - CAŁKOWITY</p>
+          </div>
+
+          <div style="margin-bottom: 10px">
+            <button (click)="addFire()" mat-raised-button class="my-button" color="primary">Dodaj pożar
+            </button>
+          </div>
+
+          <div style="margin-bottom: 10px">
+            <button (click)="generateFinal()" mat-raised-button class="my-button" color="primary">Generuj</button>
+          </div>
+
+        </div>
+      </div>
   </mat-step>
 </mat-stepper>

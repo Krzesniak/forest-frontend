@@ -1,14 +1,14 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {Terrain} from "../../boards/constants";
-import {AgentResourceRequest, ForestService} from "../../forest.service";
 import {MAT_DIALOG_DATA} from "@angular/material/dialog";
+import {AgentResourceRequest, ForestService} from "../../forest.service";
 
 @Component({
-  selector: 'app-adding-agent',
-  templateUrl: './adding-agent.component.html',
-  styleUrls: ['./adding-agent.component.css']
+  selector: 'app-adding-managing-agent',
+  templateUrl: './adding-managing-agent.component.html',
+  styleUrls: ['./adding-managing-agent.component.css']
 })
-export class AddingAgentComponent implements OnInit {
+export class AddingManagingAgentComponent implements OnInit{
   board: any;
   terrain = Terrain;
 
@@ -20,7 +20,7 @@ export class AddingAgentComponent implements OnInit {
   }
 
   tickCell(col: number, row: number) {
-    this.board[col][row].agentParameters.hasSensor = !this.board[col][row].agentParameters.hasSensor;
+    this.board[col][row].agentParameters.center = !this.board[col][row].agentParameters.center;
   }
 
   updateTempBoard(): void {

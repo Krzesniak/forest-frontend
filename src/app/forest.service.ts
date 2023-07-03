@@ -15,6 +15,10 @@ export class ForestService {
     return this.httpClient.get(this.HOSTNAME + 'game-view');
   }
 
+  getTempBoard() {
+    return this.httpClient.get(this.HOSTNAME + 'temp-game-view');
+  }
+
   generateForestIndexView(req: ForestPixelRequest) {
     return this.httpClient.post(this.HOSTNAME + 'forest-fire-index', req)
   }
@@ -25,6 +29,27 @@ export class ForestService {
 
   updateAgentBoard(board: AgentResourceRequest) {
     return this.httpClient.put(this.HOSTNAME + 'agents', board);
+  }
+
+  addFire(board: any) {
+    return this.httpClient.put(this.HOSTNAME + 'fires', board);
+  }
+
+  startSimulation() {
+    return this.httpClient.post(this.HOSTNAME + 'simulation/start', null);
+  }
+
+  getPixelById(id: string) {
+    return this.httpClient.get(this.HOSTNAME + 'pixel/' + id);
+  }
+
+  stopSimulation() {
+    return this.httpClient.post(this.HOSTNAME + 'simulation/stop', null);
+  }
+
+
+  generateFinalBoard() {
+    return this.httpClient.post(this.HOSTNAME + 'map/generate', null);
   }
 }
 

@@ -4,3 +4,12 @@ export enum Terrain {
   SAND = "SAND",
   WATER = "WATER"
 }
+export enum ForestFireState {
+  NONE = "NONE",
+  LOW = "LOW",
+  MEDIUM = "MEDIUM",
+  HIGH = "HIGH",
+  EXTREME = "EXTREME",
+  DESTROYED = "DESTROYED"
+}
+

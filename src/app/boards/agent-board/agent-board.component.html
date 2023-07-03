@@ -4,13 +4,16 @@
       <tr>
         <ng-container *ngFor="let col of row; let j = index">
           <td  [ngClass]="{
+
+                          'fire-non-visible' :  (!col.agentParameters.visible && col.beingBurned),
+                          'fire-visible' : (col.agentParameters.visible && col.beingBurned),
                           'visible': col.agentParameters.visible,
-                          'testable' : col.agentParameters.testable,
                           'none' : (!col.agentParameters.visible && !col.agentParameters.testable)
+
                        }"
           >
             <img *ngIf="board[i][j].agentParameters.hasSensor" src="assets/img/sensor.png" >
-            <img *ngIf="board[i][j].isCenter" src="assets/img/sensor.png" >
+            <img *ngIf="board[i][j].agentParameters.center" src="assets/img/center.png" >
             <!--  <p>{{i}}{{j}}</p>-->
 
           </td>

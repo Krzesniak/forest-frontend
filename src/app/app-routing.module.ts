@@ -4,16 +4,17 @@ import {RouterModule, Routes} from "@angular/router";
 import {AppComponent} from "./app.component";
 import {SimulationComponent} from "./simulation/simulation.component";
 import {MapGeneratorComponent} from "./map-generator/map-generator.component";
+import {MainAppComponent} from "./main-app/main-app.component";
 
 const routes: Routes = [
   {
     path: 'map-generator', component: MapGeneratorComponent
   },
   {
-    path: 'app', component: SimulationComponent
+    path: 'simulation', component: SimulationComponent
   },
   {
-    path: '', component: AppComponent
+    path: '', component: MainAppComponent
   }
 ];
 

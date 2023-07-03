@@ -1,1 +1,22 @@
-<app-terrain-board></app-terrain-board>
+<mat-tab-group  #tabGroup>
+  <mat-tab label="Teren">
+    <app-terrain-board></app-terrain-board>
+  </mat-tab>
+  <mat-tab label="Indeks zagrożeń">
+    <app-forest-index-board></app-forest-index-board>
+  </mat-tab>
+
+  <mat-tab label="Agenci">
+    <app-agent-board></app-agent-board>
+  </mat-tab>
+  <mat-tab label="Pożar">
+    <div style="display:flex;">
+      <div style="flex: 10;">
+    <app-fire-board></app-fire-board>
+      </div>
+      <div style="flex: 1">
+      <app-pixel-details></app-pixel-details>
+      </div>
+    </div>
+  </mat-tab>
+</mat-tab-group>

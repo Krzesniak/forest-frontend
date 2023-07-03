@@ -1,0 +1,22 @@
+<p>Numer wiersza: {{rowId}}</p>
+<p>Numer kolumny: {{columnId}}</p>
+<p>Teren: <img src="../../../assets/img/{{pixel.terrain}}.png"></p>
+<p>Temperatura: {{pixel.temperature}} &#x2103;</p>
+<p>Wilgotność: {{pixel.humidity}} </p>
+<p>Prędkość wiatru: {{pixel.wind.speed}} m/s</p>
+<p>Wartość indeksu zagrożenia: {{pixel.forestFireIndexValue | number: '1.2-2'}}
+<p style="  position: relative;
+  width: 100%;
+  height: 50px;
+  border: 1px whitesmoke dotted;
+  padding: 0"  [ngClass]="{
+                          'none': pixel.forestFireIndex == 'NONE',
+                          'low' : pixel.forestFireIndex == 'LOW',
+                          'moderate' : pixel.forestFireIndex == 'MODERATE',
+                          'high' : pixel.forestFireIndex == 'HIGH',
+                          'very-high' : pixel.forestFireIndex == 'VERY_HIGH',
+                          'extreme' : pixel.forestFireIndex == 'EXTREME'
+                       }"></p>
+<p>Całkowita spalona część terenu: {{pixel.fireParameter.fieldPercentageDestroyed | number: '1.2-2' }}% </p>
+<p>Prędkość palenia się terenu: {{pixel.fireParameter.fireSpeedSpreed | number: '1.2-2' }}% </p>
+

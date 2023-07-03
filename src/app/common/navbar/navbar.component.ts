@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import {Router} from "@angular/router";
+import {ForestService} from "../../forest.service";
 
 @Component({
   selector: 'app-navbar',
@@ -7,8 +9,11 @@ import { Component } from '@angular/core';
 })
 export class NavbarComponent {
 
-  startSimulation() {
+  constructor(private router: Router, private forestService: ForestService) {
+  }
 
+  startSimulation() {
+    this.forestService.startSimulation().subscribe(() => console.log("Start simulation"));
   }
 
   endSimulation() {
@@ -16,6 +21,10 @@ export class NavbarComponent {
   }
 
   newSimulation() {
+    this.router.navigate(['/map-generator'])
+  }
 
+  stopSimulation() {
+    this.forestService.stopSimulation().subscribe(() => console.log("Stop simulation"));
   }
 }
