@@ -7,6 +7,12 @@
           <app-terrain-board></app-terrain-board>
         </div>
         <div style="flex: 1">
+          <div style="display: flex; justify-content: flex-end; margin-bottom: 20px">
+            <label for="file-upload" class="custom-file-upload">
+              <i class="fa fa-cloud-upload"></i> Wczytaj konfiguracje mapy
+            </label>
+            <input id="file-upload" type="file" #fileInput (change)="changeFile($event)"/>
+          </div>
           <div class="header">
             <h1>LEGENDA</h1>
           </div>
@@ -279,30 +285,35 @@
   </mat-step>
   <mat-step>
     <ng-template matStepLabel>Ustal pożary</ng-template>
-      <div style="display: flex">
-        <div class="main-content-terrain">
-          <app-fire-board></app-fire-board>
-        </div>
-        <div style="flex: 1;">
-          <div class="header">
-            <h1>LEGENDA</h1>
-          </div>
-          <div>
-            <img style="max-width: 200px" src="assets/img/gradient-fire.png">
-            <p>STOPIEŃ WYPALALENIA TERENU</p>
-            <p>ZIELONY - BRAK, CZARNY - CAŁKOWITY</p>
-          </div>
-
-          <div style="margin-bottom: 10px">
-            <button (click)="addFire()" mat-raised-button class="my-button" color="primary">Dodaj pożar
-            </button>
-          </div>
-
-          <div style="margin-bottom: 10px">
-            <button (click)="generateFinal()" mat-raised-button class="my-button" color="primary">Generuj</button>
-          </div>
-
-        </div>
+    <div style="display: flex">
+      <div class="main-content-terrain">
+        <app-fire-board></app-fire-board>
       </div>
+      <div style="flex: 1;">
+        <div class="header">
+          <h1>LEGENDA</h1>
+        </div>
+        <div>
+          <img style="max-width: 200px" src="assets/img/gradient-fire.png">
+          <p>STOPIEŃ WYPALALENIA TERENU</p>
+          <p>ZIELONY - BRAK, CZARNY - CAŁKOWITY</p>
+        </div>
+
+        <div style="margin-bottom: 10px">
+          <button (click)="addFire()" mat-raised-button class="my-button" color="primary">Dodaj pożar
+          </button>
+        </div>
+
+        <div style="margin-bottom: 10px">
+          <button (click)="generateFinal()" mat-raised-button class="my-button" color="primary">Generuj</button>
+        </div>
+
+        <div style="margin-bottom: 10px">
+          <button (click)="saveConfig()" mat-raised-button class="my-button" color="primary">Zapisz konfiguracje
+          </button>
+        </div>
+
+      </div>
+    </div>
   </mat-step>
 </mat-stepper>

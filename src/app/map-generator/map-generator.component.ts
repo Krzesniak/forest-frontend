@@ -1,4 +1,4 @@
-import {Component, ViewChild} from '@angular/core';
+import {Component, ElementRef, ViewChild} from '@angular/core';
 import {FormBuilder, Validators} from "@angular/forms";
 import {ForestPixelRequest, ForestService, TerrainBoardRequest} from "../forest.service";
 import {TerrainBoardComponent} from "../boards/terrain-board/terrain-board.component";
@@ -39,6 +39,7 @@ export class MapGeneratorComponent {
     fireVehicles: [1, Validators.required]
   });
   isLinear: boolean = false;
+  @ViewChild('fileInput', { static: false }) fileInput: ElementRef | undefined;
 
   @ViewChild(TerrainBoardComponent) terrainComponent: TerrainBoardComponent | undefined;
 
@@ -140,5 +141,27 @@ export class MapGeneratorComponent {
     this.forestService.generateFinalBoard().subscribe(() => {
       this.router.navigate(["/simulation"]);
     })
+  }
+
+  saveConfig() {
+    this.forestService.getTempBoard().subscribe(data => {
+      const json = JSON.stringify(data);
+      let FileSaver = require('file-saver');
+      let blob = new Blob([json], {type: 'application/json'});
+      FileSaver.saveAs(blob, "config.json");
+    })
+  }
+
+  changeFile($event: Event) {
+    // @ts-ignore
+    let fileRef = $event.target.files[0];
+    const formData = new FormData();
+    formData.append("file", fileRef);
+    this.forestService.loadConfiguration(formData).subscribe(data => {
+      this.terrainComponent?.updateTempBoard();
+      // @ts-ignore
+      this.fileInput.nativeElement.value = null;
+    });
+
   }
 }

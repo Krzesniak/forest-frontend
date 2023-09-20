@@ -14,6 +14,23 @@
           >
             <img *ngIf="board[i][j].agentParameters.hasSensor" src="assets/img/sensor.png" >
             <img *ngIf="board[i][j].agentParameters.center" src="assets/img/center.png" >
+            <div style="display: flex; padding-left: 5px; align-self: flex-start; justify-content: center" *ngIf="board[i][j].agentCounter.firefightersCount != 0">
+              <img style="width: 30px; height: 30px;" src="assets/img/firefighter-agent.jpg">
+              <p style="color: white; font-size: 20px; padding-left: 5px; padding-top: 5px"> {{board[i][j].agentCounter.firefightersCount}}</p>
+
+            </div>
+
+            <div style="display: flex; padding-left: 5px; align-self: flex-start; justify-content: center" *ngIf="board[i][j].agentCounter.testerAgentsCount != 0">
+              <img style="width: 30px; height: 30px;" src="assets/img/tester-agent.png">
+              <p style="color: white; font-size: 20px; padding-left: 5px; padding-top: 5px"> {{board[i][j].agentCounter.testerAgentsCount}}</p>
+
+            </div>
+
+            <div style="display: flex; padding-left: 5px; align-self: flex-start; justify-content: center" *ngIf="board[i][j].agentCounter.fireControllerAgentCount != 0">
+              <img style="width: 30px; height: 30px;" src="assets/img/fire-controller-agent.png">
+              <p style="color: white; font-size: 20px; padding-left: 5px; padding-top: 5px"> {{board[i][j].agentCounter.fireControllerAgentCount}}</p>
+
+            </div>
             <!--  <p>{{i}}{{j}}</p>-->
 
           </td>
